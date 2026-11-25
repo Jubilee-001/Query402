@@ -8,19 +8,19 @@ import { previewSponsoredRun } from "../lib/sponsorship/policy.js";
 
 const challengeRequestSchema = z.object({
   wallet: stellarPublicKeySchema
-});
+}).strict();
 
 const grantRequestSchema = z.object({
   wallet: stellarPublicKeySchema,
   challengeId: z.string().uuid(),
   signature: z.string().min(1)
-});
+}).strict();
 
 const previewRequestSchema = z.object({
   wallet: stellarPublicKeySchema,
   mode: queryModeSchema,
   provider: z.string().min(1)
-});
+}).strict();
 
 export const sponsorshipRouter = Router();
 
